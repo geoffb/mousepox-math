@@ -17,5 +17,8 @@
     "tslint": "^5.10.0",
     "typescript": "^2.8.3"
   },
-  "author": "Geoff Blair <gmblair@gmail.com>"
+  "author": "Geoff Blair <gmblair@gmail.com>",
+  "publishConfig": {
+    "access": "public"
+  }
 }
