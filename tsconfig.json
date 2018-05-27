@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es2016"],
+    "module": "commonjs",
+    "strict": true,
+    "removeComments": true,
+    "declaration": true,
+    "outDir": "dist"
+  },
+  "include": [
+    "lib/**/*"
+  ],
+  "compileOnSave": true
+}
