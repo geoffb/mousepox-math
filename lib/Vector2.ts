@@ -1,5 +1,9 @@
 export class Vector2 {
 
+  public static fromAngle(radians: number): Vector2 {
+    return new Vector2(Math.cos(radians), Math.sin(radians));
+  }
+
   public x: number;
 
   public y: number;
