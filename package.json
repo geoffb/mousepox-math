@@ -1,23 +1,27 @@
 {
   "name": "@mousepox/math",
-  "description": "Vector",
+  "description": "Math-related objects and utilities",
   "version": "0.2.0",
+  "author": "Geoff Blair <geoff@mousepox.io>",
   "license": "ISC",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
   "types": "dist/index.d.ts",
+  "module": "dist-es/index.js",
+  "files": [
+    "dist",
+    "dist-es"
+  ],
   "scripts": {
-    "build": "tsc",
+    "build": "yarn build:commonjs && yarn build:es",
+    "build:commonjs": "tsc",
+    "build:es": "tsc -p tsconfig-es.json",
     "lint": "tslint -c tslint.json 'lib/**/*.ts'",
     "prepublish": "yarn lint && yarn build"
   },
   "devDependencies": {
     "tslint": "^5.10.0",
-    "typescript": "^2.8.3"
+    "typescript": "^3.4.0"
   },
-  "author": "Geoff Blair <gmblair@gmail.com>",
   "publishConfig": {
     "access": "public"
   }
