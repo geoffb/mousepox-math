@@ -33,6 +33,16 @@ export function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max);
 }
 
+/** Calculate the Euclidean distance between two points */
+export function distance(x1: number, y1: number, x2: number, y2: number): number {
+  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+}
+
+/** Calculate the Manhattan distance between two points */
+export function manhattanDistance(x1: number, y1: number, x2: number, y2: number): number {
+  return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+}
+
 /** Lerp betweeen two angles, via the shortest routes */
 export function lerpAngle(a: number, b: number, t: number): number {
   const da = (b - a) % Tau;
