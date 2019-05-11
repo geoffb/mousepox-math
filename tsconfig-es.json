@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["ESNext"],
-    "module": "ESNext",
+    "target": "esnext",
+    "lib": ["esnext"],
+    "module": "esnext",
     "moduleResolution": "node",
     "strict": true,
     "removeComments": true,

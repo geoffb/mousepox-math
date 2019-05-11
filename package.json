@@ -1,6 +1,11 @@
 {
   "name": "@mousepox/math",
   "description": "Math-related objects and utilities",
+  "keywords": [
+    "game",
+    "math",
+    "typescript"
+  ],
   "version": "0.2.0",
   "author": "Geoff Blair <geoff@mousepox.io>",
   "license": "ISC",
@@ -12,8 +17,8 @@
     "dist-es"
   ],
   "scripts": {
-    "build": "yarn build:commonjs && yarn build:es",
-    "build:commonjs": "tsc",
+    "build": "yarn build:cjs && yarn build:es",
+    "build:cjs": "tsc",
     "build:es": "tsc -p tsconfig-es.json",
     "lint": "tslint -c tslint.json 'lib/**/*.ts'",
     "prepublish": "yarn lint && yarn build"
