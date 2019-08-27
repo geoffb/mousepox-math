@@ -11,6 +11,8 @@ Math-related objects and utilities.
 * [Constants](#constants)
   * [`GoldenRatio`](#goldenratio)
   * [`Tau`](#tau)
+* [Functions](#functions)
+  * [`clamp`](#clamp)
 
 ### Interfaces
 
@@ -63,3 +65,19 @@ The [Golden Ratio](https://en.wikipedia.org/wiki/Golden_ratio).
 `const Tau: number;`
 
 A full circle, or 2PI. See [The Tau Manifesto](https://tauday.com/).
+
+### Functions
+
+#### clamp
+
+```ts
+clamp(value: number, min: number, max: number): number;
+```
+
+Clamp a value between a given minimum and maximum.
+
+Example:
+```ts
+const n = clamp(100, 20, 70);
+// n = 70
+```
