@@ -2,6 +2,8 @@
 
 Math-related objects and utilities.
 
+[![Actions Status](https://github.com/geoffb/mousepox-math/workflows/nodejs/badge.svg)](https://github.com/geoffb/mousepox-math/actions)
+
 ## API Reference
 
 * [Interfaces](#interfaces)
