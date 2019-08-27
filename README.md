@@ -2,7 +2,7 @@
 
 Math-related objects and utilities.
 
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fgeoffb%2Fmousepox-math%2Fbadge&style=flat-square)](https://actions-badge.atrox.dev/geoffb/mousepox-math/goto)
+[![Actions Status](https://github.com/geoffb/mousepox-math/workflows/NodeCI/badge.svg)](https://github.com/geoffb/mousepox-math/actions)
 
 ## API Reference
 
