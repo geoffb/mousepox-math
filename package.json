@@ -21,9 +21,11 @@
     "build:cjs": "tsc",
     "build:es": "tsc -p tsconfig-es.json",
     "lint": "tslint -c tslint.json 'lib/**/*.ts'",
-    "prepublish": "yarn lint && yarn build"
+    "prepublish": "yarn lint && yarn build",
+    "test": "tape 'tests/**/*.js'"
   },
   "devDependencies": {
+    "tape": "^4.11.0",
     "tslint": "^5.10.0",
     "typescript": "^3.4.0"
   },
