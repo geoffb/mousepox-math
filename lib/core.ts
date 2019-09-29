@@ -62,5 +62,5 @@ export function lerp(a: number, b: number, t: number): number {
 
 /** Wrap radians around a circle */
 export function wrapRadians(radians: number): number {
-  return (radians + Tau) % Tau;
+  return ((radians % Tau) + Tau) % Tau;
 }
