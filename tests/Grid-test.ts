@@ -1,12 +1,12 @@
-const tape = require("tape");
-const { approximately, distance, Grid, Vector2 } = require("../dist");
+import * as tape from "tape";
+import { approximately, distance, Grid, Vector2 } from "../lib";
 
 tape("Grid", (t) => {
   // Create a simple grid for testing
   // This grid has non-zero "walls" around the edges
   const grid = new Grid(9, 9);
   grid.forEach((value, x, y) => {
-    if (x === 0 || y === 0 || x === grid.width -1 || y === grid.height - 1) {
+    if (x === 0 || y === 0 || x === grid.width - 1 || y === grid.height - 1) {
       grid.set(x, y, 1);
     }
   });

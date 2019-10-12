@@ -1,5 +1,5 @@
-const tape = require("tape");
-const { wrapRadians } = require("../dist");
+import * as tape from "tape";
+import { wrapRadians } from "../lib";
 
 tape("wrapRadians", (t) => {
   t.equal(wrapRadians(20.420352248333657), 1.5707963267948983);

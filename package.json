@@ -22,10 +22,12 @@
     "build:es": "tsc -p tsconfig-es.json",
     "lint": "tslint -c tslint.json 'lib/**/*.ts'",
     "prepublish": "yarn lint && yarn build",
-    "test": "tape 'tests/**/*.js'"
+    "test": "tape -r ts-node/register 'tests/**/*-test.ts'"
   },
   "devDependencies": {
+    "@types/tape": "^4.2.33",
     "tape": "^4.11.0",
+    "ts-node": "^8.4.1",
     "tslint": "^5.10.0",
     "typescript": "^3.4.0"
   },
