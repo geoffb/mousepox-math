@@ -1,6 +1,6 @@
 # @mousepox/math
 
-Math-related objects and utilities.
+Math-related objects and utilities for 2D games.
 
 [![Actions Status](https://github.com/geoffb/mousepox-math/workflows/NodeCI/badge.svg)](https://github.com/geoffb/mousepox-math/actions)
 
@@ -58,13 +58,17 @@ A rectangle in 2D space.
 
 #### GoldenRatio
 
-`const GoldenRatio: number;`
+```ts
+const GoldenRatio: number;
+```
 
 The [Golden Ratio](https://en.wikipedia.org/wiki/Golden_ratio).
 
 #### Tau
 
-`const Tau: number;`
+```ts
+const Tau: number;
+```
 
 A full circle, or 2PI. See [The Tau Manifesto](https://tauday.com/).
 
