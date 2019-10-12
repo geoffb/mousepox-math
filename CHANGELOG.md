@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.4.0
+
+* Add `Grid` class
+* Add `Vector2.add` method
+* Add `Vector2.copy` method
+* Add `Vector2.constrain` method
+* Add `Vector2.normalize` method
+* Add `Vector2.subtract` method
+* Add `Vector2.magnitude` property
+* `Vector2.copy` and `Vector2.subtract` methods now take an `IPoint` instead of a `Vector2`
+* Add `approximately` function
+
 ## 0.3.1
 
 * :bug: Correctly handle negative radians in wrapRadians
