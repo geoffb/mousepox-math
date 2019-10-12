@@ -19,11 +19,12 @@ export class Vector2 implements IPoint {
     return Math.atan2(this.y, this.x);
   }
 
-  /** Mangitude (or length of this vector) */
+  /** Mangitude (or length) of this vector */
   public get magnitude(): number {
     return Math.sqrt(this.x * this.x + this.y * this.y);
   }
 
+  /** Create a new Vector2 */
   constructor(x = 0, y = 0) {
     this.x = x;
     this.y = y;
@@ -43,9 +44,9 @@ export class Vector2 implements IPoint {
    * Copy the components of another vector
    * @chainable
    */
-  public copy(v: Vector2): Vector2 {
-    this.x = v.x;
-    this.y = v.y;
+  public copy(p: IPoint): Vector2 {
+    this.x = p.x;
+    this.y = p.y;
     return this;
   }
 
@@ -62,20 +63,30 @@ export class Vector2 implements IPoint {
     }
   }
 
-  /** Scale this vector by a given scalar */
+  /**
+   * Scale this vector by a given scalar
+   * @chainable
+   */
   public scale(n: number): Vector2 {
     this.x *= n;
     this.y *= n;
     return this;
   }
 
-  public subtract(v: Vector2): Vector2 {
-    this.x -= v.x;
-    this.y -= v.y;
+  /**
+   * Subtract a point from this vector
+   * @chainable
+   */
+  public subtract(p: IPoint): Vector2 {
+    this.x -= p.x;
+    this.y -= p.y;
     return this;
   }
 
-  /** Constrain this vector's components by specified bounds */
+  /**
+   * Constrain this vector's components by specified bounds
+   * @chainable
+   */
   public constrain(x: number, y: number, width: number, height: number): Vector2 {
     this.x = clamp(this.x, x, x + width);
     this.y = clamp(this.y, y, y + height);
