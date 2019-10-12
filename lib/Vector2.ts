@@ -41,6 +41,16 @@ export class Vector2 implements IPoint {
   }
 
   /**
+   * Add a point to this vector
+   * @chainable
+   */
+  public add(p: IPoint): Vector2 {
+    this.x += p.x;
+    this.y += p.y;
+    return this;
+  }
+
+  /**
    * Copy the components of another vector
    * @chainable
    */
