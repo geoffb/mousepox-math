@@ -28,6 +28,11 @@ export const GoldenRatio = (Math.sqrt(5) + 1) / 2;
  */
 export const Tau = Math.PI * 2;
 
+/** Compares two numbers for approximate equality */
+export function approximately(a: number, b: number, threshold = Number.EPSILON): boolean {
+  return Math.abs(a - b) < threshold;
+}
+
 /** Clamp a number between two values */
 export function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max);
