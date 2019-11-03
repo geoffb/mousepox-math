@@ -1,3 +1,4 @@
+export * from "./astar";
 export * from "./core";
 export * from "./Grid";
 export * from "./Random";
