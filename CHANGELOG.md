@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0
+
+* Add `astar` function (A* pathfinding using `Grid`)
+* Add `Grid.forEachAdjacent` method
+* Change `Grid.xyToIndex` from `private` to `public`
+
 ## 0.4.0
 
 * Add `Grid` class
