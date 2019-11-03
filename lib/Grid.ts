@@ -1,6 +1,14 @@
 import { IPoint } from "./core";
 import { Vector2 } from "./Vector2";
 
+/** Orthogonally adjecent cell offsets */
+const OrthogonalAdjacentOffsets: IPoint[] = [
+  { x: 0, y: -1 }, // Top
+  { x: -1, y: 0 }, // Left
+  { x: 1, y: 0 }, // Right
+  { x: 0, y: 1 }, // Bottom
+];
+
 /** Results of casting a ray */
 export interface IGridRaycastResult {
   /** Distance from ray origin */
@@ -97,6 +105,16 @@ export class Grid {
     }
   }
 
+  /** Invokes a handler for each cell adjacent to a given cell */
+  public forEachAdjacent(x: number, y: number, handler: GridForEach) {
+    for (const offset of OrthogonalAdjacentOffsets) {
+      const ax = x + offset.x;
+      const ay = y + offset.y;
+      if (!this.valid(ax, ay)) { continue; }
+      handler(this.get(ax, ay), ax, ay);
+    }
+  }
+
   /** Cast a ray and return information about cells hit, etc */
   public raycast(origin: IPoint, direction: Vector2, result?: IGridRaycastResult): IGridRaycastResult {
     if (result === undefined) {
@@ -178,6 +196,11 @@ export class Grid {
     return result;
   }
 
+  /** Converts an x,y coordinate into a flattened index */
+  public xyToIndex(x: number, y: number): number {
+    return (y * this.width) + x;
+  }
+
   /** Returns the x coordinate of a given grid index */
   private indexToX(index: number): number {
     return index % this.width;
@@ -186,11 +209,6 @@ export class Grid {
   /** Returns the y coordinate of a given grid index */
   private indexToY(index: number): number {
     return Math.floor(index / this.width);
-  }
-
-  /** Converts an x,y coordinate into a flattened index */
-  private xyToIndex(x: number, y: number): number {
-    return (y * this.width) + x;
   }
 
 }
