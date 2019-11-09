@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+* Add `Grid.copy` method
+* Add `Grid.paste` method
+* Add `Grid.rotate` method
+
 ## 1.0.0
 
 * Add `astar` function (A* pathfinding using `Grid`)

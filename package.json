@@ -6,7 +6,7 @@
     "math",
     "typescript"
   ],
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Geoff Blair <geoff@mousepox.io>",
   "license": "ISC",
   "main": "dist/index.js",
