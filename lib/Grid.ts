@@ -86,6 +86,11 @@ export class Grid {
     }
   }
 
+  /** Copy values from another grid */
+  public copy(grid: Grid) {
+    grid.forEach((value, x, y) => this.set(x, y, value));
+  }
+
   /** Invokes a handler for each cell in the grid */
   public forEach(handler: GridForEach) {
     const len = this.cells.length;
@@ -113,6 +118,27 @@ export class Grid {
       if (!this.valid(ax, ay)) { continue; }
       handler(this.get(ax, ay), ax, ay);
     }
+  }
+
+  /** Rotate this grid clockwise by 90 degrees, a given number of times */
+  public rotate(rotations = 1) {
+    Scratch.resize(this.height, this.width);
+    for (let i = 0; i < rotations; ++i) {
+      for (let y = 0; y < this.height; ++y) {
+        for (let x = 0; x < this.width; ++x) {
+          Scratch.set(Scratch.width - y - 1, x, this.get(x, y));
+        }
+      }
+      this.copy(Scratch);
+    }
+  }
+
+  /** "Paste" the contents of another grid at specified location */
+  public paste(grid: Grid, x: number, y: number) {
+    grid.forEach((value, sx, sy) => {
+      // console.log("paste", value, sx, sy);
+      this.set(x + sx, y + sy, value);
+    });
   }
 
   /** Cast a ray and return information about cells hit, etc */
@@ -212,3 +238,6 @@ export class Grid {
   }
 
 }
+
+/** Modular level scratch object */
+const Scratch = new Grid();
