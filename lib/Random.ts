@@ -37,6 +37,16 @@ export class Random {
     return this.next() <= probability;
   }
 
+  /** Choose a random item from an array, optionally removing it */
+  public choice<T>(items: T[], remove = false): T {
+    const index = this.integer(0, items.length - 1);
+    const pick = items[index];
+    if (remove) {
+      items.splice(index, 1);
+    }
+    return pick;
+  }
+
   /** Shuffles an array of items in place */
   public shuffle(items: any[]) {
     const len = items.length;
