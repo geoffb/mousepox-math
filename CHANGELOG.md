@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+
+* Add `Random.choice` method
+* Change `Grid.cells` from `private` to `public`
+
 ## 1.1.0
 
 * Add `Grid.copy` method
