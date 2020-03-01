@@ -32,7 +32,7 @@ export class Grid {
   public height = 0;
 
   /** Cell values */
-  private cells: number[] = [];
+  public cells: number[] = [];
 
   /** Create a new Grid */
   constructor(width = 0, height = 0) {
@@ -136,7 +136,6 @@ export class Grid {
   /** "Paste" the contents of another grid at specified location */
   public paste(grid: Grid, x: number, y: number) {
     grid.forEach((value, sx, sy) => {
-      // console.log("paste", value, sx, sy);
       this.set(x + sx, y + sy, value);
     });
   }

@@ -17,9 +17,7 @@
     "dist-es"
   ],
   "scripts": {
-    "build": "yarn build:cjs && yarn build:es",
-    "build:cjs": "tsc",
-    "build:es": "tsc -p tsconfig-es.json",
+    "build": "tsc && tsc -p tsconfig-es.json",
     "lint": "tslint -c tslint.json 'lib/**/*.ts'",
     "prepublish": "yarn lint && yarn build",
     "test": "tape -r ts-node/register 'tests/**/*-test.ts'"
