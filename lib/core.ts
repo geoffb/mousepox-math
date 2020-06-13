@@ -19,6 +19,12 @@ export interface IRectangle {
   height: number;
 }
 
+/** A range of numbers */
+export interface IRange {
+  min: number;
+  max: number;
+}
+
 /** Golden ratio */
 export const GoldenRatio = (Math.sqrt(5) + 1) / 2;
 
