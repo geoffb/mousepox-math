@@ -1,9 +1,45 @@
+import { IRange } from "./core";
+
 const M = 0x80000000; // 2^31
 const A = 1103515245;
 const C = 12345;
 
+/** RegEx for parsing dice notation */
+const DiceNotationPattern = /([0-9]+)?d([0-9]+)([+-]{1}[0-9]+)?/;
+
+/** Dice information */
+interface IDiceInfo {
+  count: number;
+  sides: number;
+  bonus: number;
+}
+
+/** Parse dice info from notation */
+function parseDiceNotation(notation: string): IDiceInfo {
+  // Parse dice notation
+  const matches = notation.match(DiceNotationPattern);
+  if (matches === null) {
+    throw new Error(`Invalid dice notation: ${notation}`);
+  }
+
+  return {
+    bonus: Number(matches[3]),
+    count: Number(matches[1]),
+    sides: Number(matches[2]),
+  };
+}
+
 /** Deterministic pseudorandom number generator */
 export class Random {
+
+  /** Return the possible range for a given dice notation */
+  public static getDiceNotationRange(notation: string): IRange {
+    const { count, sides, bonus } = parseDiceNotation(notation);
+    return {
+      max: count * sides + bonus,
+      min: count * 1 + bonus,
+    };
+  }
 
   /** Current state of the random number generator */
   public state = 0;
@@ -57,6 +93,19 @@ export class Random {
       items[i] = items[j];
       items[j] = swap;
     }
+  }
+
+  /** Roll some dice defined by "dice notation", e.g. "2d4+1" */
+  public rollDiceNotation(notation: string): number {
+    const { count, sides, bonus } = parseDiceNotation(notation);
+
+    // Roll dice
+    let result = bonus;
+    for (let i = 0; i < count; ++i) {
+      result += this.integer(1, sides);
+    }
+
+    return result;
   }
 
 }
