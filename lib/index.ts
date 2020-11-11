@@ -4,3 +4,4 @@ export * from "./Grid";
 export * from "./Random";
 export * from "./SpatialHash";
 export * from "./Vector2";
+export * from "./Vector3";

@@ -1,4 +1,4 @@
-import { clamp, IPoint } from "./core";
+import { clamp, dot2, IPoint } from "./core";
 
 /** A vector in 2D space */
 export class Vector2 implements IPoint {
@@ -58,6 +58,11 @@ export class Vector2 implements IPoint {
     this.x = p.x;
     this.y = p.y;
     return this;
+  }
+
+  /** Calculate the dot product of this vector and another */
+  public dot(x: number, y: number): number {
+    return dot2(this.x, this.y, x, y);
   }
 
   /**

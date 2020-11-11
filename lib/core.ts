@@ -4,6 +4,13 @@ export interface IPoint {
   y: number;
 }
 
+/** A point in 3D space */
+export interface IPoint3 {
+  x: number;
+  y: number;
+  z: number;
+}
+
 /** A circle in 2D space */
 export interface ICircle {
   x: number;
@@ -47,6 +54,16 @@ export function clamp(value: number, min: number, max: number): number {
 /** Calculate the Euclidean distance between two points */
 export function distance(x1: number, y1: number, x2: number, y2: number): number {
   return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+}
+
+/** Calculate the dot product of given 2D vectors */
+export function dot2(x1: number, y1: number, x2: number, y2: number): number {
+  return x1 * x2 + y1 * y2;
+}
+
+/** Calculate the dot product of given 3D vectors */
+export function dot3(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): number {
+  return x1 * x2 + y1 * y2 + z1 * z2;
 }
 
 /** Calculate the Manhattan distance between two points */
