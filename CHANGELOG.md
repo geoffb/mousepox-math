@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.1
+
+* :bug: Avoid invalid cell coordinates in `Grid.forEachInArea`
+
 ## 1.3.0
 
 * Add `IRange`
