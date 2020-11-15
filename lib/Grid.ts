@@ -105,6 +105,7 @@ export class Grid {
   public forEachInArea(x: number, y: number, width: number, height: number, handler: GridForEach) {
     for (let iy = y; iy < y + height; ++iy) {
       for (let ix = x; ix < x + width; ++ix) {
+        if (!this.valid(ix, iy)) { continue; }
         handler(this.get(ix, iy), ix, iy);
       }
     }
