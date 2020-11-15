@@ -1,6 +1,5 @@
 /* tslint:disable: no-bitwise */
 
-// import { Vector2 } from "./Vector2";
 import { Vector3 } from "./Vector3";
 
 const P = [
@@ -37,6 +36,9 @@ function fade(t: number) {
 function lerp(a: number, b: number, t: number) {
   return (1 - t) * a + t * b;
 }
+
+/** A 2D noise generating function */
+export type Noise2D = (x: number, y: number) => number;
 
 export class Noise {
 
@@ -99,11 +101,25 @@ export class Noise {
     const u = fade(x);
 
     // Interpolate the four results
-    return lerp(
+    return (lerp(
       lerp(n00, n10, u),
       lerp(n01, n11, u),
-      fade(y));
+      fade(y)) + 1) / 2;
   }
+
+  // public fillPerlinGrid(grid: Grid, frequency: number) {
+  //   const len = grid.width * grid.height;
+  //   for (let i = 0; i < len; i++) {
+  //     const x = i % grid.width;
+  //     const y = Math.floor(i / grid.width);
+  //     let v = this.perlin2(x * scaleX, y * scaleY);
+  //     if (normalize) {
+  //       v += 1.0;
+  //       v /= 2.0;
+  //     }
+  //     grid.set(x, y, v);
+  //   }
+  // }
 
 }
 

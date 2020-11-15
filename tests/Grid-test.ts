@@ -5,7 +5,7 @@ tape("Grid", (t) => {
   // Create a simple grid for testing
   // This grid has non-zero "walls" around the edges
   const grid = new Grid(9, 9);
-  grid.forEach((value, x, y) => {
+  grid.forEach((_, x, y) => {
     if (x === 0 || y === 0 || x === grid.width - 1 || y === grid.height - 1) {
       grid.set(x, y, 1);
     }

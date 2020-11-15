@@ -105,6 +105,7 @@ export class Grid {
   public forEachInArea(x: number, y: number, width: number, height: number, handler: GridForEach) {
     for (let iy = y; iy < y + height; ++iy) {
       for (let ix = x; ix < x + width; ++ix) {
+        if (!this.valid(ix, iy)) { continue; }
         handler(this.get(ix, iy), ix, iy);
       }
     }
@@ -130,6 +131,26 @@ export class Grid {
         }
       }
       this.copy(Scratch);
+    }
+  }
+
+  public normalize() {
+    const len = this.cells.length;
+
+    // Find min and max values and map current values to them
+    let min = Infinity;
+    let max = -Infinity;
+    for (let i = 0; i < len; i++) {
+      const v = this.cells[i];
+      min = Math.min(v, min);
+      max = Math.max(v, max);
+    }
+
+    // Map all values to 0 -> 1
+    for (let i = 0; i < len; i++) {
+      let v = this.cells[i] - min;
+      v = v / (max - min);
+      this.setIndex(i, v);
     }
   }
 
@@ -227,12 +248,12 @@ export class Grid {
   }
 
   /** Returns the x coordinate of a given grid index */
-  private indexToX(index: number): number {
+  protected indexToX(index: number): number {
     return index % this.width;
   }
 
   /** Returns the y coordinate of a given grid index */
-  private indexToY(index: number): number {
+  protected indexToY(index: number): number {
     return Math.floor(index / this.width);
   }
 
