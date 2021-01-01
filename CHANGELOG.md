@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0
+
+* Add `Vector2.rotate`
+* Add `Grid.rotatePoint`
+
 ## 1.3.1
 
 * :bug: Avoid invalid cell coordinates in `Grid.forEachInArea`
