@@ -1,11 +1,11 @@
 import * as tape from "tape";
-import { approximately, distance, Grid, Vector2 } from "../lib";
+import { approximately, distance, Grid, IPoint, Vector2 } from "../lib";
 
 tape("Grid", (t) => {
   // Create a simple grid for testing
   // This grid has non-zero "walls" around the edges
   const grid = new Grid(9, 9);
-  grid.forEach((value, x, y) => {
+  grid.forEach((_, x, y) => {
     if (x === 0 || y === 0 || x === grid.width - 1 || y === grid.height - 1) {
       grid.set(x, y, 1);
     }
@@ -39,5 +39,14 @@ tape("Grid", (t) => {
   t.equal(hit.x, wall.x);
   t.equal(hit.y, wall.y);
 
+  t.end();
+});
+
+tape("Grid.rotatePoint", (t) => {
+  const g = new Grid(5, 5);
+  const p: IPoint = { x: 0, y: 1 };
+  g.rotatePoint(p, Math.PI / 2);
+  t.equal(p.x, 3);
+  t.equal(p.y, 0);
   t.end();
 });

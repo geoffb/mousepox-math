@@ -17,6 +17,7 @@
     "dist-es"
   ],
   "scripts": {
+    "clean": "rm -rf dist dist-es",
     "build": "tsc && tsc -p tsconfig-es.json",
     "lint": "tslint -c tslint.json 'lib/**/*.ts'",
     "prepublish": "yarn lint && yarn build",

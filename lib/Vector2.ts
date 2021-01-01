@@ -103,4 +103,18 @@ export class Vector2 implements IPoint {
     return this;
   }
 
+  /**
+   * Rotate this vector's components
+   * @chainable
+   */
+  public rotate(angle: number, origin?: IPoint): Vector2 {
+    const ox = origin?.x ?? 0;
+    const oy = origin?.y ?? 0;
+    const cos = Math.cos(angle);
+    const sin = Math.sin(angle);
+    const x = ((this.x - ox) * cos - (this.y - oy) * sin) + ox;
+    const y = ((this.x - ox) * sin - (this.y - oy) * cos) + oy;
+    return this.set(x, y);
+  }
+
 }

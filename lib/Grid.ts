@@ -1,6 +1,9 @@
 import { IPoint } from "./core";
 import { Vector2 } from "./Vector2";
 
+/** Scratch Vector2 for inline calculations */
+const ScratchVector2 = new Vector2();
+
 /** Orthogonally adjecent cell offsets */
 const OrthogonalAdjacentOffsets: IPoint[] = [
   { x: 0, y: -1 }, // Top
@@ -34,6 +37,9 @@ export class Grid {
   /** Cell values */
   public cells: number[] = [];
 
+  /** Center point of the grid */
+  private readonly center: IPoint = { x: 0, y: 0 };
+
   /** Create a new Grid */
   constructor(width = 0, height = 0) {
     this.resize(width, height);
@@ -43,6 +49,8 @@ export class Grid {
   public resize(width: number, height: number) {
     this.width = width;
     this.height = height;
+    this.center.x = Math.floor(width / 2);
+    this.center.y = Math.floor(height / 2);
     this.cells.length = width * height;
     this.fill(0);
   }
@@ -132,6 +140,14 @@ export class Grid {
       }
       this.copy(Scratch);
     }
+  }
+
+  /** Rotate a given point within this grid around its center */
+  public rotatePoint(p: IPoint, angle: number) {
+    ScratchVector2.set(p.x, p.y);
+    ScratchVector2.rotate(angle, this.center);
+    p.x = Math.round(ScratchVector2.x);
+    p.y = Math.round(ScratchVector2.y);
   }
 
   /** "Paste" the contents of another grid at specified location */
