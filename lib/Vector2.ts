@@ -113,7 +113,7 @@ export class Vector2 implements IPoint {
     const cos = Math.cos(angle);
     const sin = Math.sin(angle);
     const x = ((this.x - ox) * cos - (this.y - oy) * sin) + ox;
-    const y = ((this.x - ox) * sin - (this.y - oy) * cos) + oy;
+    const y = ((this.x - ox) * sin + (this.y - oy) * cos) + oy;
     return this.set(x, y);
   }
 
