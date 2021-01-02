@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.1
+
+* :bug: Fix implementation of `Vector2.rotate`
+
 ## 1.4.0
 
 * Add `Vector2.rotate`
