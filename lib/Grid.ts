@@ -49,6 +49,15 @@ type GridForEach = (value: number, x: number, y: number) => void;
 /** 2D grid of numeric values */
 export class Grid {
 
+  /** Create a grid from a set of strings (one row per string) */
+  public static fromStrings(rows: string[], map: string): Grid {
+    const grid = new Grid(rows[0].length, rows.length);
+    grid.forEach((_, x, y) => {
+      grid.set(x, y, map.indexOf(rows[y][x]));
+    });
+    return grid;
+  }
+
   /** Width of the grid, in cells */
   public width = 0;
 

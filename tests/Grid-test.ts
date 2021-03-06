@@ -59,3 +59,19 @@ tape("Grid.getAdjacentFlags", (t) => {
   t.equal(g.getAdjacentFlags(2, 2), DirectionMask.North);
   t.end();
 });
+
+tape("Grid.fromStrings", (t) => {
+  const g = Grid.fromStrings([
+    ".....",
+    ".@...",
+    "..#..",
+    "...$.",
+    "....%",
+  ], ".@#$%");
+  t.equal(g.get(0, 0), 0);
+  t.equal(g.get(1, 1), 1);
+  t.equal(g.get(2, 2), 2);
+  t.equal(g.get(3, 3), 3);
+  t.equal(g.get(4, 4), 4);
+  t.end();
+});
