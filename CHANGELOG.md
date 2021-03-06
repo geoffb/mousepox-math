@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.0
+
+* Add `DirectionMask`
+* Add `BitFlags`
+* Add `Grid.getAdjacentFlags`
+
 ## 1.4.1
 
 * :bug: Fix implementation of `Vector2.rotate`
