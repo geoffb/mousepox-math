@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.0
+
+* Add `AutoGrid`
+* Add `Grid.fromStrings`
+
 ## 1.5.0
 
 * Add `DirectionMask`
