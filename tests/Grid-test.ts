@@ -1,5 +1,5 @@
 import * as tape from "tape";
-import { approximately, distance, Grid, IPoint, Vector2 } from "../lib";
+import { approximately, distance, DirectionMask, Grid, IPoint, Vector2 } from "../lib";
 
 tape("Grid", (t) => {
   // Create a simple grid for testing
@@ -48,5 +48,14 @@ tape("Grid.rotatePoint", (t) => {
   g.rotatePoint(p, Math.PI / 2);
   t.equal(p.x, 3);
   t.equal(p.y, 0);
+  t.end();
+});
+
+tape("Grid.getAdjacentFlags", (t) => {
+  const g = new Grid(5, 5);
+  g.set(2, 1, 1);
+  g.set(2, 2, 1);
+  t.equal(g.getAdjacentFlags(2, 1), DirectionMask.South);
+  t.equal(g.getAdjacentFlags(2, 2), DirectionMask.North);
   t.end();
 });

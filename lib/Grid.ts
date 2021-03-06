@@ -1,5 +1,14 @@
-import { IPoint } from "./core";
+import { DirectionMask, IPoint } from "./core";
+import { BitFlags } from "./BitFlags";
 import { Vector2 } from "./Vector2";
+
+/** A cell offset */
+interface IGridCellOffset extends IPoint {
+  mask: DirectionMask;
+}
+
+/** Scratch BitFlags for inline calculations */
+const ScratchBitFlags = new BitFlags();
 
 /** Scratch Vector2 for inline calculations */
 const ScratchVector2 = new Vector2();
@@ -10,6 +19,18 @@ const OrthogonalAdjacentOffsets: IPoint[] = [
   { x: -1, y: 0 }, // Left
   { x: 1, y: 0 }, // Right
   { x: 0, y: 1 }, // Bottom
+];
+
+/** Cardinal and intercardinal adjacent cell offsets */
+const AdjacentOffsets: IGridCellOffset[] = [
+  { x: -1, y: -1, mask: DirectionMask.NorthWest },
+  { x: 0, y: -1, mask: DirectionMask.North },
+  { x: 1, y: -1, mask: DirectionMask.NorthEast },
+  { x: -1, y: 0, mask: DirectionMask.West },
+  { x: 1, y: 0, mask: DirectionMask.East },
+  { x: -1, y: 1, mask: DirectionMask.SouthWest },
+  { x: 0, y: 1, mask: DirectionMask.South },
+  { x: 1, y: 1, mask: DirectionMask.SouthEast },
 ];
 
 /** Results of casting a ray */
@@ -73,6 +94,20 @@ export class Grid {
     } else {
       throw new Error(`Invalid cell coordinates: ${x}, ${y}`);
     }
+  }
+
+  /** Returns a bit mask indicating which adjacent cells are equal */
+  public getAdjacentFlags(x: number, y: number): number {
+    const v = this.get(x, y);
+    ScratchBitFlags.clear();
+    for (const offset of AdjacentOffsets) {
+      const ox = x + offset.x;
+      const oy = y + offset.y;
+      if (!this.valid(ox, oy) || this.get(ox, oy) === v) {
+        ScratchBitFlags.set(offset.mask);
+      }
+    }
+    return ScratchBitFlags.value;
   }
 
   /** Sets the value of a cell by its x,y coordinates */
