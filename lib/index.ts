@@ -1,4 +1,5 @@
 export * from "./astar";
+export * from "./AutoGrid";
 export * from "./core";
 export * from "./BitFlags";
 export * from "./Grid";
