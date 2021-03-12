@@ -44,7 +44,7 @@ export interface IGridRaycastResult {
 }
 
 /** Handler passed to "forEach" methods */
-type GridForEach = (value: number, x: number, y: number) => void;
+export type GridForEach = (value: number, x: number, y: number) => void;
 
 /** 2D grid of numeric values */
 export class Grid {
