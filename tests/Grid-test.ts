@@ -57,6 +57,16 @@ tape("Grid.getAdjacentFlags", (t) => {
   g.set(2, 2, 1);
   t.equal(g.getAdjacentFlags(2, 1), DirectionMask.South);
   t.equal(g.getAdjacentFlags(2, 2), DirectionMask.North);
+
+  const g2 = new Grid(3, 3);
+  g2.cells = [
+    1, 0, 1,
+    1, 0, 1,
+    1, 0, 1,
+  ];
+  // tslint:disable-next-line:no-bitwise
+  t.equal(g2.getAdjacentFlags(1, 1), DirectionMask.North | DirectionMask.South);
+
   t.end();
 });
 
