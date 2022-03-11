@@ -3,7 +3,7 @@ import { Grid } from "./Grid";
 /** A rule for converting a given adjacent flags value */
 export interface IAutoGridRule {
   flags: number[];
-  value: number;
+  value: number | number[];
 }
 
 /** A collection of auto grid rules, indexed by source grid value */
@@ -40,7 +40,14 @@ export class AutoGrid extends Grid {
       if (this.rules[tile] !== undefined) {
         for (const rule of this.rules[tile]) {
           if (rule.flags.indexOf(flags) !== -1) {
-            this.set(x, y, rule.value);
+            let value = 0;
+            if (Array.isArray(rule.value)) {
+              const index = Math.floor(Math.random() * rule.value.length);
+              value = rule.value[index];
+            } else {
+              value = rule.value;
+            }
+            this.set(x, y, value);
             return;
           }
         }
