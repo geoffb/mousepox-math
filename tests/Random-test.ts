@@ -8,7 +8,11 @@ tape("rollDiceByNotation", (t) => {
   try {
     rng.rollDiceNotation("dasdasdadas");
   } catch (e) {
-    t.ok(e.message, "Invalid dice notation: dasdasdadas");
+    if (e instanceof Error) {
+      t.ok(e.message, "Invalid dice notation: dasdasdadas");
+    } else {
+      t.fail(`Unexpected error type: ${typeof e}`);
+    }
   }
 
   const r1 = rng.rollDiceNotation("2d4+3");
