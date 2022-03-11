@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.0
+
+* Allow `AutoGrid` to randomize when given multiple values
+
 ## 1.6.1
 
 * Export `GridForEach`
