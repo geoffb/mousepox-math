@@ -25,3 +25,11 @@ tape("Random.getDiceNotationRange", (t) => {
   t.equal(range.max, 11);
   t.end();
 });
+
+tape("Random#integer", (t) => {
+  const rng = new Random(5);
+  t.equal(rng.integer(1, 6), 4);
+  t.equal(rng.integer(1, 6), 2);
+  t.equal(rng.integer(1, 6), 6);
+  t.end();
+});

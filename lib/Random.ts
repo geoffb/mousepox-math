@@ -65,7 +65,7 @@ export class Random {
 
   /** Returns a random integer between min and max, inclusive */
   public integer(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(this.next() * (max - min + 1)) + min;
   }
 
   /** Returns true if a random number falls within a given probability */
