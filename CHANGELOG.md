@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.1
+
+* :bug: Avoid `Math.random()` for `Random#integer`
+
 ## 1.7.0
 
 * Allow `AutoGrid` to randomize when given multiple values
