@@ -1,0 +1,7 @@
+# Yarn/npm
+node_modules
+
+# Build artifacts
+dist
+dist-es
+docs

@@ -1,15 +1,13 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "lib": ["esnext"],
-    "module": "commonjs",
-    "strict": true,
-    "removeComments": true,
-    "declaration": true,
-    "outDir": "dist"
-  },
-  "include": [
-    "lib/**/*.ts"
-  ],
-  "compileOnSave": true
+	"compilerOptions": {
+		"target": "es6",
+		"lib": ["esnext"],
+		"module": "commonjs",
+		"strict": true,
+		"removeComments": true,
+		"declaration": true,
+		"outDir": "dist"
+	},
+	"include": ["lib/**/*.ts"],
+	"compileOnSave": true
 }

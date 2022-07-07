@@ -1,15 +1,13 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "lib": ["esnext"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "removeComments": true,
-    "outDir": "dist-es"
-  },
-  "include": [
-    "lib/**/*.ts"
-  ],
-  "compileOnSave": true
+	"compilerOptions": {
+		"target": "esnext",
+		"lib": ["esnext"],
+		"module": "esnext",
+		"moduleResolution": "node",
+		"strict": true,
+		"removeComments": true,
+		"outDir": "dist-es"
+	},
+	"include": ["lib/**/*.ts"],
+	"compileOnSave": true
 }

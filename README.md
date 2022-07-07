@@ -14,4 +14,4 @@ yarn add @mousepox/math
 
 ## Documentation
 
-* [API Reference](https://geoffb.github.io/mousepox-math/)
+- [API Reference](https://geoffb.github.io/mousepox-math/)
