@@ -21,7 +21,7 @@
 		"lint": "prettier --check .",
 		"clean": "rm -rf dist dist-es docs",
 		"build": "tsc && tsc -p tsconfig-es.json",
-		"doc": "typedoc lib/index.ts --name '@mousepox/math Documentation' --readme DOCS.md",
+		"doc": "typedoc lib/index.ts --readme DOCS.md",
 		"test": "tape -r ts-node/register 'tests/**/*-test.ts'"
 	},
 	"devDependencies": {
