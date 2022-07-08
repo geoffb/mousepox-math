@@ -19,9 +19,9 @@
 	"scripts": {
 		"format": "prettier --write .",
 		"lint": "prettier --check .",
-		"clean": "rm -rf dist dist-es",
+		"clean": "rm -rf dist dist-es docs",
 		"build": "tsc && tsc -p tsconfig-es.json",
-		"doc": "rm -rf docs && typedoc lib/index.ts",
+		"doc": "typedoc lib/index.ts --name '@mousepox/math Documentation' --readme DOCS.md",
 		"test": "tape -r ts-node/register 'tests/**/*-test.ts'"
 	},
 	"devDependencies": {
@@ -29,7 +29,7 @@
 		"prettier": "^2.7.1",
 		"tape": "^4.11.0",
 		"ts-node": "^8.4.1",
-		"typedoc": "^0.22.13",
+		"typedoc": "^0.23.5",
 		"typescript": "^4.7.4"
 	},
 	"publishConfig": {
