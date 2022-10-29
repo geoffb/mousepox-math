@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7.2
+
+- Avoid `const enum`
+
 ## 1.7.1
 
 - :bug: Avoid `Math.random()` for `Random#integer`
