@@ -51,7 +51,7 @@ export function astar(
 	const start = makeNode(x1, y1);
 	const goal = makeNode(x2, y2);
 
-	// Creat open and closed node lists
+	// Create open and closed node lists
 	const open: INode[] = [start];
 	const closed: number[] = [];
 

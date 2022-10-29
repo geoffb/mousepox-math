@@ -18,7 +18,7 @@ export class Vector2 implements IPoint {
 		return Math.atan2(this.y, this.x);
 	}
 
-	/** Mangitude (or length) of this vector */
+	/** Magnitude (or length) of this vector */
 	public get magnitude(): number {
 		return Math.sqrt(this.x * this.x + this.y * this.y);
 	}

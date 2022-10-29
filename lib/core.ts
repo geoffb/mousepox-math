@@ -25,7 +25,7 @@ export interface IRange {
 	max: number;
 }
 
-/** Bit mask values for the cardinal and intercardinal directions */
+/** Bit mask values for the cardinal and inter-cardinal directions */
 export const enum DirectionMask {
 	None = 0,
 	North = 1,
@@ -81,7 +81,7 @@ export function manhattanDistance(
 	return Math.abs(x1 - x2) + Math.abs(y1 - y2);
 }
 
-/** Lerp betweeen two angles, via the shortest routes */
+/** Lerp between two angles, via the shortest routes */
 export function lerpAngle(a: number, b: number, t: number): number {
 	const da = (b - a) % Tau;
 	const n = ((2 * da) % Tau) - da;

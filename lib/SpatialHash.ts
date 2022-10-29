@@ -30,7 +30,7 @@ export class SpatialHash {
 		const ox = Math.floor(rect.x / this.size);
 		const tx = Math.floor((rect.x + rect.width) / this.size);
 
-		// Interate over all intersecting buckets along the X axis
+		// Iterate over all intersecting buckets along the X axis
 		for (let x = ox; x <= tx; ++x) {
 			// Determine extents along the Y axis
 			const oy = Math.floor(rect.y / this.size);

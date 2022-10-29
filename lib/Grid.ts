@@ -13,7 +13,7 @@ const ScratchBitFlags = new BitFlags();
 /** Scratch Vector2 for inline calculations */
 const ScratchVector2 = new Vector2();
 
-/** Orthogonally adjecent cell offsets */
+/** Orthogonally adjacent cell offsets */
 const OrthogonalAdjacentOffsets: IPoint[] = [
 	{ x: 0, y: -1 }, // Top
 	{ x: -1, y: 0 }, // Left
@@ -21,7 +21,7 @@ const OrthogonalAdjacentOffsets: IPoint[] = [
 	{ x: 0, y: 1 }, // Bottom
 ];
 
-/** Cardinal and intercardinal adjacent cell offsets */
+/** Cardinal and inter-cardinal adjacent cell offsets */
 const AdjacentOffsets: IGridCellOffset[] = [
 	{ x: -1, y: -1, mask: DirectionMask.NorthWest },
 	{ x: 0, y: -1, mask: DirectionMask.North },
@@ -247,7 +247,7 @@ export class Grid {
 		let stepY = 0;
 		let hit = false;
 
-		// Calculate step and sideDist
+		// Calculate step and side distance
 		if (direction.x < 0) {
 			stepX = -1;
 			sideDistX = (origin.x - x) * deltaDistX;
