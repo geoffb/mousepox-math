@@ -26,7 +26,7 @@ export interface IRange {
 }
 
 /** Bit mask values for the cardinal and inter-cardinal directions */
-export const enum DirectionMask {
+export enum DirectionMask {
 	None = 0,
 	North = 1,
 	East = 2,
